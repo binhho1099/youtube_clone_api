@@ -1,0 +1,73 @@
+*, *::after,*::before{
+    box-sizing: border-box;
+}
+*:focus{
+    outline: none;
+}
+html{
+	font-size: 62.5%;
+	line-height: 1.4rem;
+	font-family: 'Poppins', sans-serif;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+	overflow-x: hidden;
+    box-sizing: inherit;
+}
+
+body{
+    background-color: #f0f0f0;
+    position: relative;
+}
+// mixin
+@mixin absolute($direction: "center") {
+    position: absolute;
+    @if $direction == "center"{
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    @if $direction == "vertical"{
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    @if $direction == "horizontal" {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@mixin text ($size, $color) {
+    font-size: $size;
+    color: $color;
+}
+
+@mixin flex ($justify: "center") {
+    display: flex;
+    align-items: center;
+    @if $justify == "center" {
+        justify-content: center;
+    }
+    @if $justify == "between" {
+        justify-content: space-between;
+    }
+    @if $justify == "around" {
+        justify-content: space-around;
+    }
+}
+
+@mixin lineLimit ($n){
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $n;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.btn{
+    text-decoration: none;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
